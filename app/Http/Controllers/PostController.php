@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -95,5 +96,12 @@ class PostController extends Controller
 
     return view('posts.index', compact('posts', 'topics', 'activeTopic'));
 }
-    
+public function dash()
+{
+    $totalPosts = Post::count();
+    $totalTopics = Topic::count();
+    $totalUsers = User::count(); // Add this line
+
+    return view('posts.dashboard', compact('totalPosts', 'totalUsers', 'totalTopics'));
+}
 }

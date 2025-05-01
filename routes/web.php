@@ -5,7 +5,8 @@ use App\Http\Controllers\TopicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
-Route::get('/posts', [PostController::class, 'dashboard'])->name('posts.dashboard');
+Route::get('/posts', [PostController::class, 'dash']);
+Route::get('/dashboard', [PostController::class, 'dash'])->name('posts.dashboard');
 Route::get('/posts/manageposts', [PostController::class, 'manageposts'])->name('posts.manageposts');
 
 // Post Routes
@@ -15,6 +16,7 @@ Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
 
 
 
