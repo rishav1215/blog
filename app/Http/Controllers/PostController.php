@@ -20,7 +20,7 @@ class PostController extends Controller
     }
 
     public function manageposts() {
-        $posts = Post::paginate(10);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(10);
         return view('posts.manageposts', compact('posts'));
     }
 
@@ -100,7 +100,7 @@ public function dash()
 {
     $totalPosts = Post::count();
     $totalTopics = Topic::count();
-    $totalUsers = User::count(); // Add this line
+    $totalUsers = User::count(); 
 
     return view('posts.dashboard', compact('totalPosts', 'totalUsers', 'totalTopics'));
 }

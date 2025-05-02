@@ -18,12 +18,9 @@ Route::post('/posts/{id}/update', [PostController::class, 'update'])->name('post
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 
-
-
-// Topic Routes
 // Topic Routes
 Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');
-Route::get('/topics/create', [TopicController::class, 'create'])->name('topics.create');  // Changed from createtopic
+Route::get('/topics/create', [TopicController::class, 'create'])->name('topics.create'); 
 Route::post('/topics', [TopicController::class, 'store'])->name('topics.store');
 Route::get('/topics/{topic}/edit', [TopicController::class, 'edit'])->name('topics.edit');
 Route::put('/topics/{topic}', [TopicController::class, 'update'])->name('topics.update');
